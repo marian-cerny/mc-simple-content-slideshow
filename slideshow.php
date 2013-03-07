@@ -64,15 +64,17 @@ $s_output .= "
 
 			<div class='{$this->plugin_namespace}slideshow_entry' style='background: url({$s_thumb_src}) center no-repeat'>
 			
+				<div class='{$this->plugin_namespace}slideshow_entry_text'>	
 					
-					
-					<div class='{$this->plugin_namespace}slideshow_entry_header'>
+					<div class='{$this->plugin_namespace}slideshow_entry_text_header'>
 							{$s_slide_title}
 					</div>
 					
-					<div class='{$this->plugin_namespace}slideshow_entry_content'>
+					<div class='{$this->plugin_namespace}slideshow_entry_text_content'>
 							" . get_the_content() . "
 					</div>
+					
+				</div>
 				
 			</div>
 			<!-- eof slideshow_entry -->
@@ -87,6 +89,8 @@ $s_output .= "
 		}
 
 	endwhile;
+	
+	wp_reset_query();
 	
 	// CLOSE LAST LIST ITEM
 	if ( !$b_new_page )
@@ -135,6 +139,8 @@ $s_output .= "<div class='space'></div>";
 // *******************************************************************
 
 // $i_item_width = ceil( $width / $number_of_items );
+$s_navig_display = ( $show_navig ) ? '' : 'display: none';
+$s_ul_left = ( $i_post_counter > 1 ) ? "-{$i_item_width}px;" : "0";
 $i_item_width = $width;
 $s_output .= "
 <style type='text/css'>
@@ -152,7 +158,7 @@ $s_output .= "
 }
 
 .{$this->plugin_namespace}slideshow_ul {
-	left:-{$i_item_width}px;
+	left:{$s_ul_left};
 	position:relative;  
 	list-style-type: none; 
 	margin: 0px; 
@@ -174,11 +180,23 @@ $s_output .= "
 	width: {$i_item_width}px;
 }
 
+.{$this->plugin_namespace}slideshow_entry_text {
+	position: absolute;
+	bottom: 3%;
+	left: 2%;
+	width: 50%;
+	background: rgba(50,50,50,0.7);
+	color: white;
+	text-align: left;
+	padding: 1ex 1em;
+}
+
 .{$this->plugin_namespace}navig_left, .{$this->plugin_namespace}navig_right {  
 	position: absolute;
 	top: 40%;
 	cursor: pointer;
 	z-index: 3;
+	{$s_navig_display}
 }
 
 .{$this->plugin_namespace}navig_left {

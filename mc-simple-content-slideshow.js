@@ -1,3 +1,5 @@
+var $ = jQuery.noConflict();
+
 $(document).ready(function() {
 
 	// simplify settings variable

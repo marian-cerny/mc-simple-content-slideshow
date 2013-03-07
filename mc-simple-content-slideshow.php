@@ -69,6 +69,11 @@ class mc_scs_plugin
 					'type' => 'checkbox',
 					'value' => 'on',
 				),
+				'slider_show_navig' => array(
+					'title' => 'Show navigation arrows',
+					'type' => 'checkbox',
+					'value' => 'on',
+				),
 				'slider_pause_on_hover' => array(
 					'title' => 'Pause on hover',
 					'type' => 'checkbox',
@@ -227,6 +232,7 @@ class mc_scs_plugin
 			'width' => $this->get_setting( 'slider_width' ),
 			'height' => $this->get_setting( 'slider_height' ),
 			'show_paging' => $this->get_setting( 'slider_show_paging' ),
+			'show_navig' => $this->get_setting( 'slider_show_navig' ),
 			// 'number_of_items' => $this->get_setting( 'items_number' ),
 			'orderby' => $this->get_setting( 'items_orderby' ),
 			'order' => $this->get_setting( 'items_order' ),
