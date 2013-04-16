@@ -99,6 +99,7 @@ class mc_scs_plugin
 						'menu_order' => 'Menu order',
 						'date' => 'Creation time',
 						'title' => 'Alphabetical',
+						'rand' => 'Random',
 					),
 				),
 				'items_order' => array(
